@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Pax Calculator</title>
+    <script>
+        function run() {
+            sel1 = document.getElementById("index1");
+            index1 = sel1[sel1.selectedIndex].value;
+            sel2 = document.getElementById("index2");
+            index2 = sel2[sel2.selectedIndex].value;
+            pax1 = document.getElementById("raw1").value * index1;
+            pax2 = document.getElementById("raw2").value * index2;
+            document.getElementById("output1").innerHTML = "Pax1 = " + (pax1).toFixed(3);
+            document.getElementById("output2").innerHTML = "Pax2 = " + (pax2).toFixed(3);
+            toMakeUp = pax2 / index1;
+            document.getElementById("makeUpTime").innerHTML = "If Raw Time 1 was " + (toMakeUp).toFixed(3) + " the PAX times would be the same.";
+        }
+    </script>
+</head>
+<body>
+    <form>
+        Raw Time 1: 
+        <input type="number" id="raw1">
+        Index 1: 
+        <select id="index1">
+            <option value="1">AS</option>
+            <option value=".7">BS</option>
+            <option value=".5">CS</option>
+            <option value=".3">DS</option>
+        </select>
+        <div>
+        Raw Time 2: 
+        <input type="number" id="raw2">
+        Index 2: 
+        <select id="index2">
+            <option value="1">AS</option>
+            <option value=".7">BS</option>
+            <option value=".5">CS</option>
+            <option value=".3">DS</option>
+        </select>
+        </div>
+    </form>
+    <button type="button" onclick="run()">Try it</button>
+    <p id="output1"></p>
+    <p id="output2"></p>
+    <p id="makeUpTime"></p>
+</body>
+</html>
